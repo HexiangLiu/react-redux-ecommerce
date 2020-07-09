@@ -1,0 +1,28 @@
+:root {
+  --dark: #1b262c;
+  --grey: #eee;
+  --grey-1: #ddd;
+  -grey-2: #d3d6db;
+
+  --trasition: all 0.3s;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  font-family: 'Lato', sans-serif;
+}
+
+section {
+  margin-top: 5rem;
+}

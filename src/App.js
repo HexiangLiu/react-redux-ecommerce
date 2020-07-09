@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+//style
+import './App.scss';
+
 //pages
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -11,36 +14,40 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 
+//components
+import Header from './components/Header';
+
 const App = () => {
   return (
     <Router>
+      <Header />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Login">
+        <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/About">
+        <Route exact path="/about">
           <About />
         </Route>
-        <Route exact path="/Error">
-          <Error />
-        </Route>
-        <Route exact path="/Products">
+        <Route exact path="/products">
           <Products />
         </Route>
-        <Route exact path="/Products">
+        <Route exact path="/products">
           <Products />
         </Route>
-        <Route exact path="/ProductDetail/:id">
+        <Route exact path="/products/:id">
           <ProductDetail />
         </Route>
-        <Route exact path="/Cart">
+        <Route exact path="/cart">
           <Cart />
         </Route>
-        <Route exact path="/Checkout">
+        <Route exact path="/checkout">
           <Checkout />
+        </Route>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
     </Router>
