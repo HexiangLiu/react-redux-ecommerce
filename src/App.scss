@@ -26,3 +26,20 @@ body {
 section {
   margin-top: 5rem;
 }
+
+.btn {
+  text-transform: capitalize;
+  background-color: var(--dark);
+  color: var(--grey-1);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: var(--trasition);
+  outline: 1px solid var(--grey);
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: var(--grey-2);
+    outline: 1px solid var(--dark);
+    color: var(--dark);
+  }
+}
