@@ -21,25 +21,70 @@ body {
   box-sizing: border-box;
   font-size: 1.4rem;
   font-family: 'Lato', sans-serif;
+  line-height: 1.5;
 }
 
 section {
   margin-top: 5rem;
 }
 
+.section-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem;
+}
+
+.section-about {
+  margin: 0 auto;
+  width: 80%;
+  padding: 10rem;
+}
+
 .btn {
   text-transform: capitalize;
-  background-color: var(--dark);
-  color: var(--grey-1);
   padding: 1rem 2rem;
   text-decoration: none;
   transition: var(--trasition);
-  outline: 1px solid var(--grey);
   letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--dark);
+  color: var(--grey-1);
+  outline: 1px solid var(--grey);
 
   &:hover {
     background-color: var(--grey-2);
     outline: 1px solid var(--dark);
     color: var(--dark);
   }
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: var(--dark);
+  outline: 1px solid var(--dark);
+
+  &:hover {
+    background-color: var(--dark);
+    color: var(--grey-1);
+    outline: 1px solid var(--grey);
+  }
+}
+
+.heading--1 {
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  font-weight: 900;
+}
+
+.heading--3 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  font-weight: 900;
 }
