@@ -8,26 +8,25 @@ import ProductList from '../components/ProductList';
 //import action creator
 import { fetchProducts } from '../actions';
 
-const Products = ({ products, loading, fetchProducts }) => {
+const Products = ({ products, fetchProducts }) => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
-  if (loading) {
+  if (products.length === 0) {
     return (
       <section>
         <Loading />
       </section>
     );
+  } else {
+    return <ProductList products={products} title="our products" />;
   }
-
-  return <ProductList products={products} title="our products" />;
 };
 
-const mapStateToProps = ({ products, loading }) => {
+const mapStateToProps = ({ products }) => {
   return {
     products,
-    loading,
   };
 };
 export default connect(mapStateToProps, { fetchProducts })(Products);

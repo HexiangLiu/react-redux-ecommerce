@@ -10,7 +10,7 @@ import Loading from '../components/Loading';
 //import action creator
 import { fetchProducts } from '../actions';
 
-const Home = ({ featuredProducts, fetchProducts, loading }) => {
+const Home = ({ featuredProducts, fetchProducts }) => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
@@ -25,7 +25,7 @@ const Home = ({ featuredProducts, fetchProducts, loading }) => {
         </Hero>
       </section>
 
-      {loading ? (
+      {featuredProducts.length === 0 ? (
         <Loading />
       ) : (
         <ProductList title="featured products" products={featuredProducts} />
@@ -34,10 +34,9 @@ const Home = ({ featuredProducts, fetchProducts, loading }) => {
   );
 };
 
-const mapStateToProps = ({ products, loading }) => {
+const mapStateToProps = ({ products }) => {
   return {
     featuredProducts: products.filter((product) => product.featured === true),
-    loading,
   };
 };
 

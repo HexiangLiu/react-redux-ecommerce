@@ -1,0 +1,22 @@
+.productDetail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  background-color: var(--grey);
+  align-items: center;
+
+  &__img {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  &__info {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    padding: 0 2rem;
+  }
+
+  &__btn {
+    justify-self: stretch;
+  }
+}
