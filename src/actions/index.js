@@ -22,3 +22,20 @@ export const fetchProducts = () => async (dispatch) => {
 export const addItem = (product) => {
   return { type: ADD_ITEM, payload: product };
 };
+
+export const increaseAmount = (id) => {
+  return { type: INCREASE_AMOUNT, payload: id };
+};
+
+export const decreaseAmount = (cartItem) => {
+  if (cartItem.amount === 1) {
+    // remove the item if the next decrese will return an amount of 0
+    return { type: REMOVE_ITEM, payload: cartItem.id };
+  } else {
+    return { type: DECREASE_AMOUNT, payload: cartItem.id };
+  }
+};
+
+export const removeItem = (id) => {
+  return { type: REMOVE_ITEM, payload: id };
+};

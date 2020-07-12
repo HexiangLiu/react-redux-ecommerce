@@ -43,7 +43,8 @@ const ProductDetail = ({ products, fetchProducts, addItem }) => {
           <button
             className="btn btn-primary productDetail__btn"
             onClick={() => {
-              addItem(product);
+              // add an item with an amount key set to 1
+              addItem({ ...product, amount: 1 });
               history.push('/cart');
             }}
           >
@@ -57,10 +58,9 @@ const ProductDetail = ({ products, fetchProducts, addItem }) => {
   }
 };
 
-const mapStateToProps = ({ products, loading }) => {
+const mapStateToProps = ({ products }) => {
   return {
     products: products,
-    loading,
   };
 };
 
