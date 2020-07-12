@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 
 const Home = () => {
   return (
-    <section>
+    <section className="section-home">
       <Hero>
         <Link to="/products" className="btn btn-secondary">
           our products

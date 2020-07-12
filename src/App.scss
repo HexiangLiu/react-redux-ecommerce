@@ -4,7 +4,8 @@
   --grey-1: #ddd;
   -grey-2: #d3d6db;
 
-  --trasition: all 0.3s;
+  --transition: all 0.3s;
+  --shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
 }
 
 html {
@@ -26,6 +27,11 @@ body {
 
 section {
   margin-top: 5rem;
+  padding: 10rem;
+}
+
+.section-home {
+  padding: 0;
 }
 
 .section-error {
@@ -39,16 +45,16 @@ section {
 .section-about {
   margin: 0 auto;
   width: 80%;
-  padding: 10rem;
 }
 
 .btn {
   text-transform: capitalize;
   padding: 1rem 2rem;
   text-decoration: none;
-  transition: var(--trasition);
+  transition: var(--transition);
   letter-spacing: 1px;
   font-weight: 600;
+  font-size: 2rem;
 }
 
 .btn-primary {
@@ -78,8 +84,10 @@ section {
 .heading--1 {
   text-align: center;
   font-size: 5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
   font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: capitalize;
 }
 
 .heading--3 {
@@ -87,4 +95,9 @@ section {
   font-size: 3rem;
   margin-bottom: 4rem;
   font-weight: 900;
+}
+
+.heading--4 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
