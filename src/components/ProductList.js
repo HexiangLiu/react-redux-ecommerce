@@ -4,9 +4,8 @@ import Product from './Product';
 import './ProductList.scss';
 
 const ProductList = ({ products, title }) => {
-  console.log(products);
   return (
-    <section>
+    <section className="products">
       <h2 className="heading--1">{title}</h2>
       <div className="products__container">
         {products.map((item) => (

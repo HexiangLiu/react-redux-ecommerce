@@ -10,7 +10,7 @@
 
   &__icon {
     color: inherit;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -27,6 +27,7 @@
 
   &__pages {
     display: flex;
+    align-items: center;
   }
 
   &__link:visited,

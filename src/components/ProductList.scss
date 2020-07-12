@@ -1,5 +1,10 @@
-.products__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 2rem;
+.products {
+  background-color: var(--grey);
+  margin-top: 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+  }
 }
