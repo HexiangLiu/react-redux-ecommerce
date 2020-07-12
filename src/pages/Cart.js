@@ -1,7 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
+  console.log(cart);
   return <section>Cart</section>;
 };
 
-export default Cart;
+const mapStateToProps = ({ cart }) => {
+  return {
+    cart,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);

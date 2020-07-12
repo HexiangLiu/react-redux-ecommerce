@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 //import action creator
 import { fetchProducts } from '../actions';
+import { addItem } from '../actions';
 
 //import component
 import Loading from '../components/Loading';
@@ -12,7 +13,7 @@ import Loading from '../components/Loading';
 //import style
 import './ProductDetail.scss';
 
-const ProductDetail = ({ products, fetchProducts, loading }) => {
+const ProductDetail = ({ products, fetchProducts, addItem }) => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
@@ -41,7 +42,10 @@ const ProductDetail = ({ products, fetchProducts, loading }) => {
           <h2>Starting at ${price}</h2>
           <button
             className="btn btn-primary productDetail__btn"
-            onClick={() => history.push('/cart')}
+            onClick={() => {
+              addItem(product);
+              history.push('/cart');
+            }}
           >
             add to cart
           </button>
@@ -60,4 +64,6 @@ const mapStateToProps = ({ products, loading }) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchProducts })(ProductDetail);
+export default connect(mapStateToProps, { fetchProducts, addItem })(
+  ProductDetail
+);
