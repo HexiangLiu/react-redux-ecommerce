@@ -10,7 +10,9 @@ const increaseAmount = (state, id) =>
     return id === item.id ? { ...item, amount: item.amount + 1 } : item;
   });
 
-export default function cartReducer(state = [], action) {
+const initialState = JSON.parse(localStorage.getItem('cart')) || [];
+
+export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_ITEM:
       // check if the item is already in the cart, if so then just increase the amount by 1

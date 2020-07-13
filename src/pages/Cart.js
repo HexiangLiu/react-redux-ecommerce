@@ -13,6 +13,8 @@ const Cart = ({ cart, auth }) => {
     return <EmptyCart />;
   }
 
+  localStorage.setItem('cart', JSON.stringify(cart));
+
   let total = cart
     .reduce((acc, cur) => acc + cur.price * cur.amount, 0)
     .toFixed(2);
