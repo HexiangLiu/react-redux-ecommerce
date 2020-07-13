@@ -36,9 +36,24 @@
     color: inherit;
     text-decoration: none;
     transition: var(--transition);
+    position: relative;
   }
 
   &__link:hover {
     color: #fff;
+  }
+
+  &__cart {
+    position: absolute;
+    top: -0.5rem;
+    right: -2rem;
+    background-color: var(--grey);
+    color: var(--dark);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

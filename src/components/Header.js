@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GiPineapple } from 'react-icons/gi';
+import { connect } from 'react-redux';
 
 import './Header.scss';
 
-const Header = () => {
+const Header = ({ count }) => {
   return (
     <header className="header">
       <nav className="navbar">
@@ -39,7 +40,7 @@ const Header = () => {
             </li>
             <li className="navbar__item">
               <Link className="navbar__link" to="/cart">
-                Cart
+                Cart <span className="navbar__cart">{count}</span>
               </Link>
             </li>
           </div>
@@ -49,4 +50,9 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = ({ cart }) => {
+  return {
+    count: cart.reduce((acc, cur) => acc + cur.amount, 0),
+  };
+};
+export default connect(mapStateToProps)(Header);
