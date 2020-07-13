@@ -1,5 +1,6 @@
 //products
 export const FETCH_PRODUCTS = 'fetch products';
+export const FETCH_PRODUCT = 'fetch product';
 
 //cart
 const ADD_ITEM = 'add item';

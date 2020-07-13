@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS } from './actionTypes';
+import { FETCH_PRODUCTS, FETCH_PRODUCT } from './actionTypes';
 import {
   ADD_ITEM,
   REMOVE_ITEM,
@@ -16,6 +16,13 @@ export const fetchProducts = () => async (dispatch) => {
 
   //dispatch to reducers
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+};
+
+export const fetchProduct = (id) => async (dispatch) => {
+  // get product data from api;
+  const res = await products.get(`/products/${id}`);
+
+  dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
 
 //cart actions

@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //import action creator
-import { fetchProducts } from '../actions';
+import { fetchProduct } from '../actions';
 import { addItem } from '../actions';
 
 //import component
@@ -13,16 +13,15 @@ import Loading from '../components/Loading';
 //import style
 import './ProductDetail.scss';
 
-const ProductDetail = ({ products, fetchProducts, addItem }) => {
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
+const ProductDetail = ({ product, fetchProduct, addItem }) => {
   const { id } = useParams();
   const history = useHistory();
 
-  if (products.length > 0) {
-    const product = products.find((product) => product.id === parseInt(id));
+  useEffect(() => {
+    fetchProduct(id);
+  }, [fetchProduct, id]);
+
+  if (product) {
     const {
       image: { url },
       title,
@@ -58,12 +57,12 @@ const ProductDetail = ({ products, fetchProducts, addItem }) => {
   }
 };
 
-const mapStateToProps = ({ products }) => {
+const mapStateToProps = ({ product }) => {
   return {
-    products: products,
+    product,
   };
 };
 
-export default connect(mapStateToProps, { fetchProducts, addItem })(
+export default connect(mapStateToProps, { fetchProduct, addItem })(
   ProductDetail
 );

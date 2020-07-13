@@ -13,6 +13,8 @@ const Cart = ({ cart, auth }) => {
     return <EmptyCart />;
   }
 
+  console.log(cart);
+
   localStorage.setItem('cart', JSON.stringify(cart));
 
   let total = cart
