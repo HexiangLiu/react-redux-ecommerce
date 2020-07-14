@@ -6,9 +6,10 @@ import {
   DECREASE_AMOUNT,
 } from './actionTypes';
 
+// import configured axios instance
 import products from '../api/products';
 
-//products actions
+/****************products actions****************/
 
 export const fetchProducts = () => async (dispatch) => {
   //get products data from third party api
@@ -25,7 +26,7 @@ export const fetchProduct = (id) => async (dispatch) => {
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
 
-//cart actions
+/****************CART actions****************/
 export const addItem = (product) => {
   return { type: ADD_ITEM, payload: product };
 };
@@ -46,3 +47,5 @@ export const decreaseAmount = (cartItem) => {
 export const removeItem = (id) => {
   return { type: REMOVE_ITEM, payload: id };
 };
+
+/****************USER actions****************/
