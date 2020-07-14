@@ -8,7 +8,7 @@ import CartItem from '../components/CartItem';
 //import style
 import './Cart.scss';
 
-const Cart = ({ cart, auth }) => {
+const Cart = ({ cart, user }) => {
   if (cart.length === 0) {
     return <EmptyCart />;
   }
@@ -27,7 +27,7 @@ const Cart = ({ cart, auth }) => {
         <CartItem key={item.id} cartItem={item} />
       ))}
       <h2 className="cart__total">total : ${total} </h2>
-      {auth ? (
+      {user ? (
         <Link to="/checkout" className="btn btn-primary cart__btn">
           checkout
         </Link>
@@ -40,10 +40,10 @@ const Cart = ({ cart, auth }) => {
   );
 };
 
-const mapStateToProps = ({ cart, auth }) => {
+const mapStateToProps = ({ cart, user }) => {
   return {
     cart,
-    auth,
+    user,
   };
 };
 

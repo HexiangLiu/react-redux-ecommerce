@@ -5,15 +5,16 @@ import {
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
 } from './actionTypes';
+import { LOG_IN, LOG_OUT } from './actionTypes';
 
 // import configured axios instance
-import products from '../api/products';
+import strapi from '../api/strapi';
 
 /****************products actions****************/
 
 export const fetchProducts = () => async (dispatch) => {
   //get products data from third party api
-  const res = await products.get('/products');
+  const res = await strapi.get('/products');
 
   //dispatch to reducers
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
@@ -21,7 +22,7 @@ export const fetchProducts = () => async (dispatch) => {
 
 export const fetchProduct = (id) => async (dispatch) => {
   // get product data from api;
-  const res = await products.get(`/products/${id}`);
+  const res = await strapi.get(`/products/${id}`);
 
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
@@ -49,3 +50,35 @@ export const removeItem = (id) => {
 };
 
 /****************USER actions****************/
+export const register = ({ username, email, password }) => async (dispatch) => {
+  try {
+    const res = await strapi.post('/auth/local/register', {
+      username,
+      email,
+      password,
+    });
+
+    const { jwt: token, user } = res.data;
+    dispatch({ type: LOG_IN, payload: { token, user } });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const login = ({ email, password }) => async (dispatch) => {
+  try {
+    const res = await strapi.post('/auth/local', {
+      identifier: email,
+      password,
+    });
+
+    const { jwt: token, user } = res.data;
+    dispatch({ type: LOG_IN, payload: { token, user } });
+  } catch (error) {
+    alert('error');
+  }
+};
+
+export const logout = () => {
+  return { type: LOG_OUT };
+};

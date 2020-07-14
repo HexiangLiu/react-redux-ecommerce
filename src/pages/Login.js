@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { register, login } from '../actions';
 
 import './Login.scss';
+
 // strapi function
-const Login = () => {
+const Login = ({ register, login }) => {
   const history = useHistory();
 
   // control input
@@ -17,6 +21,12 @@ const Login = () => {
   //handle submit fucntion
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isMember) {
+      login({ email, password });
+    } else {
+      register({ email, password, username });
+    }
   };
 
   return (
@@ -87,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default connect(null, { register, login })(Login);

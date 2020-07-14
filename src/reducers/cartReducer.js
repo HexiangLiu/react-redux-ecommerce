@@ -10,6 +10,7 @@ const increaseAmount = (state, id) =>
     return id === item.id ? { ...item, amount: item.amount + 1 } : item;
   });
 
+// initialize cart with localstorage
 const initialState = JSON.parse(localStorage.getItem('cart')) || [];
 
 export default function cartReducer(state = initialState, action) {

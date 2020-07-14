@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const products = axios.create({
+const strapi = axios.create({
   baseURL: 'http://localhost:1337',
 });
 
-export default products;
+export default strapi;
