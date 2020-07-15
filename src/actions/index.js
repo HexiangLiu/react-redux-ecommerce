@@ -5,10 +5,13 @@ import {
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
 } from './actionTypes';
-import { LOG_IN, LOG_OUT } from './actionTypes';
+import { LOG_IN, LOG_OUT, SHOW_ALERT, HIDE_ALERT } from './actionTypes';
 
 // import configured axios instance
 import strapi from '../api/strapi';
+
+//import history object for redirect
+import { history } from '../App';
 
 /****************products actions****************/
 
@@ -57,9 +60,13 @@ export const register = ({ username, email, password }) => async (dispatch) => {
       email,
       password,
     });
-
-    const { jwt: token, user } = res.data;
-    dispatch({ type: LOG_IN, payload: { token, user } });
+    const {
+      jwt: token,
+      user: { username: name },
+    } = res.data;
+    console.log(name);
+    dispatch({ type: LOG_IN, payload: { token, name } });
+    history.push('/products');
   } catch (error) {
     console.log(error);
   }
@@ -67,18 +74,41 @@ export const register = ({ username, email, password }) => async (dispatch) => {
 
 export const login = ({ email, password }) => async (dispatch) => {
   try {
+    dispatch({
+      type: SHOW_ALERT,
+      payload: { msg: 'Accessing user data...', type: 'success' },
+    });
     const res = await strapi.post('/auth/local', {
       identifier: email,
       password,
     });
+    console.log(res);
+    const {
+      jwt: token,
+      user: { username: name },
+    } = res.data;
+    console.log(name);
+    dispatch({ type: LOG_IN, payload: { token, name } });
 
-    const { jwt: token, user } = res.data;
-    dispatch({ type: LOG_IN, payload: { token, user } });
+    //SHOW ALERT IF USER SUCCESSFULLY LOGED IN
+    dispatch({
+      type: SHOW_ALERT,
+      payload: { msg: "You've successfully log in", type: 'success' },
+    });
+    history.push('/products');
   } catch (error) {
-    alert('error');
+    //SHOW ALERET IF THERE IS AN ERROR
+    dispatch({
+      type: SHOW_ALERT,
+      payload: { msg: 'Failed to log in, try again', type: 'danger' },
+    });
   }
 };
 
 export const logout = () => {
   return { type: LOG_OUT };
+};
+
+export const hideAlert = () => {
+  return { type: HIDE_ALERT };
 };

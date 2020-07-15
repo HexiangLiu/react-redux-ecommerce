@@ -14,3 +14,8 @@ export { ADD_ITEM, REMOVE_ITEM, INCREASE_AMOUNT, DECREASE_AMOUNT };
 const LOG_OUT = 'log out';
 const LOG_IN = 'log in';
 export { LOG_OUT, LOG_IN };
+
+//Alert
+const SHOW_ALERT = 'alert show';
+const HIDE_ALERT = 'hide alert';
+export { SHOW_ALERT, HIDE_ALERT };

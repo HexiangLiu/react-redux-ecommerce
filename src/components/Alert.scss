@@ -1,0 +1,30 @@
+.alert {
+  position: fixed;
+  font-size: 2rem;
+  z-index: 5;
+  top: 30%;
+  left: 50%;
+  transform: translate((-50%, -50%));
+  height: 10rem;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey);
+  box-shadow: var(--shadow);
+  border-radius: 0.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.success {
+  background-color: var(--blue);
+}
+
+.danger {
+  background-color: var(--red);
+}

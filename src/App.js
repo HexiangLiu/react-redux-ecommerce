@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 //style
 import './App.scss';
@@ -16,11 +17,15 @@ import Checkout from './pages/Checkout';
 
 //components
 import Header from './components/Header';
+import Alert from './components/Alert';
+
+export const history = createBrowserHistory();
 
 const App = () => {
   return (
-    <Router>
+    <Router history={history}>
       <Header />
+      <Alert />
       <Switch>
         <Route exact path="/">
           <Home />

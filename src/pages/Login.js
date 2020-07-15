@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { register, login } from '../actions';
@@ -7,9 +6,8 @@ import { register, login } from '../actions';
 import './Login.scss';
 
 // strapi function
-const Login = ({ register, login }) => {
-  const history = useHistory();
-
+const Login = ({ register, login, showBtn }) => {
+  console.log(showBtn);
   // control input
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -78,12 +76,16 @@ const Login = ({ register, login }) => {
           </div>
         )}
 
-        <button type="submit" className="btn btn-primary form-control__btn">
-          {isMember ? 'sign in' : 'submit'}
-        </button>
+        {/* Only display the button when the alert is been closed in order to avoid multiple submit */}
+
+        {showBtn && (
+          <button type="submit" className="btn btn-primary form-control__btn">
+            {isMember ? 'sign in' : 'submit'}
+          </button>
+        )}
 
         <p className="register">
-          {isMember ? 'need to register' : 'go back to login'}
+          {isMember ? 'not a member yet?' : 'go back to login'}
           <button
             type="button"
             className="register__btn"
@@ -97,4 +99,7 @@ const Login = ({ register, login }) => {
   );
 };
 
-export default connect(null, { register, login })(Login);
+const mapStateToProps = ({ alert: { show } }) => {
+  return { showBtn: !show };
+};
+export default connect(mapStateToProps, { register, login })(Login);
