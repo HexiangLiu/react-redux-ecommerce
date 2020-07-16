@@ -15,6 +15,9 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 
+//import private route
+import PrivateRoute from './PrivateRoute';
+
 //components
 import Header from './components/Header';
 import Alert from './components/Alert';
@@ -48,9 +51,10 @@ const App = () => {
         <Route exact path="/cart">
           <Cart />
         </Route>
-        <Route exact path="/checkout">
+        {/* Protect the checkout page by creating a private route */}
+        <PrivateRoute exact path="/checkout">
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route path="*">
           <Error />
         </Route>
