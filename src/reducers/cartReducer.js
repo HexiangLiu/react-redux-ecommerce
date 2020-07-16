@@ -6,10 +6,14 @@ import {
   CLEAR_CART,
 } from '../actions/actionTypes';
 
-const increaseAmount = (state, id) =>
-  state.map((item) => {
+//function to calculate the total price and attach to cart
+
+// function to handle increment
+const increaseAmount = (state, id) => {
+  return state.map((item) => {
     return id === item.id ? { ...item, amount: item.amount + 1 } : item;
   });
+};
 
 // initialize cart with localstorage
 const initialState = JSON.parse(localStorage.getItem('cart')) || [];

@@ -51,7 +51,7 @@ const App = () => {
         <Route exact path="/cart">
           <Cart />
         </Route>
-        {/* Protect the checkout page by creating a private route */}
+        {/* Restrict the acess to checkout page by creating a private route */}
         <PrivateRoute exact path="/checkout">
           <Checkout />
         </PrivateRoute>

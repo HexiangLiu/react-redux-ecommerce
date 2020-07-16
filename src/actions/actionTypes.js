@@ -8,8 +8,16 @@ const REMOVE_ITEM = 'remove item';
 const INCREASE_AMOUNT = 'increase amount';
 const DECREASE_AMOUNT = 'decrease amount';
 const CLEAR_CART = 'clear cart';
+const UPDATE_TOTAL = 'update total price';
 
-export { ADD_ITEM, REMOVE_ITEM, INCREASE_AMOUNT, DECREASE_AMOUNT, CLEAR_CART };
+export {
+  ADD_ITEM,
+  REMOVE_ITEM,
+  INCREASE_AMOUNT,
+  DECREASE_AMOUNT,
+  CLEAR_CART,
+  UPDATE_TOTAL,
+};
 
 //user login/register
 const LOG_OUT = 'log out';

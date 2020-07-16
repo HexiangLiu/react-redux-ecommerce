@@ -5,6 +5,7 @@ import {
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
   CLEAR_CART,
+  UPDATE_TOTAL,
 } from './actionTypes';
 import { LOG_IN, LOG_OUT, SHOW_ALERT, HIDE_ALERT } from './actionTypes';
 
@@ -55,6 +56,10 @@ export const removeItem = (id) => {
 
 export const clearCart = () => {
   return { type: CLEAR_CART };
+};
+
+export const updateTotal = (total) => {
+  return { type: UPDATE_TOTAL, payload: total };
 };
 
 /****************USER actions****************/

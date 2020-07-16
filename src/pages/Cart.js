@@ -5,19 +5,23 @@ import { Link } from 'react-router-dom';
 import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 
+import { updateTotal } from '../actions';
+
 //import style
 import './Cart.scss';
 
-const Cart = ({ cart, user }) => {
+const Cart = ({ cart, user, updateTotal }) => {
   localStorage.setItem('cart', JSON.stringify(cart));
   console.log('lol');
   if (cart.length === 0) {
     return <EmptyCart />;
   }
 
-  let total = cart
+  const total = cart
     .reduce((acc, cur) => acc + cur.price * cur.amount, 0)
     .toFixed(2);
+
+  updateTotal(total);
 
   return (
     <section className="cart">
@@ -47,4 +51,4 @@ const mapStateToProps = ({ cart, user }) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { updateTotal })(Cart);
