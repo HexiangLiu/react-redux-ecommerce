@@ -3,6 +3,7 @@ import {
   REMOVE_ITEM,
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
+  CLEAR_CART,
 } from '../actions/actionTypes';
 
 const increaseAmount = (state, id) =>
@@ -34,6 +35,10 @@ export default function cartReducer(state = initialState, action) {
           ? { ...item, amount: item.amount - 1 }
           : item;
       });
+
+    case CLEAR_CART:
+      localStorage.setItem('cart', JSON.stringify([]));
+      return [];
 
     default:
       return state;

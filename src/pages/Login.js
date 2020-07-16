@@ -7,7 +7,6 @@ import './Login.scss';
 
 // strapi function
 const Login = ({ register, login, showBtn }) => {
-  console.log(showBtn);
   // control input
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

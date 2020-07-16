@@ -9,13 +9,11 @@ import CartItem from '../components/CartItem';
 import './Cart.scss';
 
 const Cart = ({ cart, user }) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  console.log('lol');
   if (cart.length === 0) {
     return <EmptyCart />;
   }
-
-  console.log(cart);
-
-  localStorage.setItem('cart', JSON.stringify(cart));
 
   let total = cart
     .reduce((acc, cur) => acc + cur.price * cur.amount, 0)
@@ -27,6 +25,8 @@ const Cart = ({ cart, user }) => {
         <CartItem key={item.id} cartItem={item} />
       ))}
       <h2 className="cart__total">total : ${total} </h2>
+
+      {/* display log in button or checkout button according to whether or not the user has successfully signed in */}
       {user ? (
         <Link to="/checkout" className="btn btn-primary cart__btn">
           checkout

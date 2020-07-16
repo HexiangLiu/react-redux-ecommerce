@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GiPineapple } from 'react-icons/gi';
 import { connect } from 'react-redux';
+import { clearCart, logout } from '../actions';
 
 import './Header.scss';
 
-const Header = ({ count }) => {
+const Header = ({ count, user, clearCart, logout }) => {
   return (
     <header className="header">
       <nav className="navbar">
@@ -31,12 +32,33 @@ const Header = ({ count }) => {
                 Product
               </Link>
             </li>
+
+            {/* only display the checkout nav when the user successfully signed in */}
+            {user && (
+              <li className="navbar__item">
+                <Link className="navbar__link" to="/checkout">
+                  Checkout
+                </Link>
+              </li>
+            )}
           </div>
           <div className="navbar__pages">
+            {/* display login or log out nav depending on user's status */}
             <li className="navbar__item">
-              <Link className="navbar__link" to="/login">
-                Login
-              </Link>
+              {user ? (
+                <button
+                  onClick={() => {
+                    clearCart();
+                    logout();
+                  }}
+                >
+                  Log Out
+                </button>
+              ) : (
+                <Link className="navbar__link" to="/login">
+                  Login
+                </Link>
+              )}
             </li>
             <li className="navbar__item">
               <Link className="navbar__link" to="/cart">
@@ -50,9 +72,10 @@ const Header = ({ count }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => {
+const mapStateToProps = ({ cart, user }) => {
   return {
     count: cart.reduce((acc, cur) => acc + cur.amount, 0),
+    user,
   };
 };
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { clearCart, logout })(Header);

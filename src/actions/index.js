@@ -4,6 +4,7 @@ import {
   REMOVE_ITEM,
   INCREASE_AMOUNT,
   DECREASE_AMOUNT,
+  CLEAR_CART,
 } from './actionTypes';
 import { LOG_IN, LOG_OUT, SHOW_ALERT, HIDE_ALERT } from './actionTypes';
 
@@ -52,6 +53,10 @@ export const removeItem = (id) => {
   return { type: REMOVE_ITEM, payload: id };
 };
 
+export const clearCart = () => {
+  return { type: CLEAR_CART };
+};
+
 /****************USER actions****************/
 export const register = ({ username, email, password }) => async (dispatch) => {
   try {
@@ -82,12 +87,12 @@ export const login = ({ email, password }) => async (dispatch) => {
       identifier: email,
       password,
     });
-    console.log(res);
+
     const {
       jwt: token,
       user: { username: name },
     } = res.data;
-    console.log(name);
+
     dispatch({ type: LOG_IN, payload: { token, name } });
 
     //SHOW ALERT IF USER SUCCESSFULLY LOGED IN
