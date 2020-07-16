@@ -50,6 +50,56 @@ section {
   width: 80%;
 }
 
+.form {
+  padding: 0 30rem;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    text-transform: capitalize;
+    margin-left: 2rem;
+    color: var(--grey-3);
+    opacity: 1;
+    transition: var(--transition);
+    font-size: 1.5rem;
+    display: block;
+  }
+
+  &__input {
+    display: block;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    transition: var(--transition);
+
+    &:focus {
+      outline: 2px solid var(--blue);
+
+      &:invalid {
+        outline: 2px solid var(--red);
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}
+
+.form-control__input:placeholder-shown + .form-control__label {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+}
+
 .btn {
   text-transform: capitalize;
   padding: 1rem 2rem;

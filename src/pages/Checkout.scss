@@ -1,0 +1,10 @@
+.instructions {
+  margin-bottom: 3rem;
+}
+
+.checkout {
+  &__alert {
+    text-align: center;
+    color: var(--red);
+  }
+}
