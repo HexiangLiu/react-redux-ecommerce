@@ -22,6 +22,7 @@ import PrivateRoute from './PrivateRoute';
 import Header from './components/Header';
 import Alert from './components/Alert';
 
+//Create a history object for redirect
 export const history = createBrowserHistory();
 
 const App = () => {

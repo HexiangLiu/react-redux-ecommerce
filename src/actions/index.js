@@ -122,3 +122,7 @@ export const logout = () => {
 export const hideAlert = () => {
   return { type: HIDE_ALERT };
 };
+
+export const showAlert = (msg) => {
+  return { type: SHOW_ALERT, payload: { msg: msg, type: 'success' } };
+};
