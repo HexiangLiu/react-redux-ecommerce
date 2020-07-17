@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const strapi = axios.create({
-  baseURL: 'http://localhost:1337',
+  baseURL: 'https://react-redux-ecommerce.herokuapp.com',
 });
 
 export default strapi;
