@@ -119,6 +119,7 @@ export const logout = () => {
   return { type: LOG_OUT };
 };
 
+/****************Alert****************/
 export const hideAlert = () => {
   return { type: HIDE_ALERT };
 };
