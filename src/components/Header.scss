@@ -16,40 +16,26 @@
 }
 
 .navbar {
-  &__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media screen and (max-width: 50em) {
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+
+  &__target {
     display: flex;
-    justify-content: space-around;
     list-style: none;
     align-items: center;
-
-    @media screen and (max-width: 50em) {
-      flex-direction: column;
-      align-items: center;
-    }
   }
 
   &__item:not(:last-child) {
-    margin-right: 1rem;
+    margin-right: 2rem;
 
     @media screen and (max-width: 50em) {
       margin-right: 0;
-    }
-  }
-
-  &__pages {
-    display: flex;
-    align-items: center;
-    transition: var(--transition);
-
-    @media screen and (max-width: 50em) {
-      flex-direction: column;
-      height: 0;
-      overflow: hidden;
-      justify-content: space-around;
-    }
-
-    @media screen and (min-width: 50em) {
-      height: 100% !important;
     }
   }
 
@@ -80,16 +66,20 @@
   }
 }
 
+.logout__btn {
+  font-size: 100%;
+  background-color: transparent;
+  border: none;
+  color: currentColor;
+}
+
+//responsive design part
 .navbar__toggle {
   display: none;
-  position: absolute;
   border: none;
   background: transparent;
   color: var(--grey);
-  top: 1rem;
-  left: 1rem;
   cursor: pointer;
-  font-size: 2rem;
 
   &:focus {
     outline: none;
@@ -100,14 +90,34 @@
   }
 }
 
-.navbar__item--cart {
+.navbar__target {
   @media screen and (max-width: 50em) {
+    background-color: var(--dark);
     position: absolute;
-    top: 1rem;
-    right: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: var(--transition);
+    padding-left: 4rem;
+    font-size: 3rem;
   }
 }
 
 .show {
   height: 50vh;
+  opacity: 1;
+}
+
+.navbar__target {
+  @media screen and (min-width: 50em) {
+    height: 100%;
+    opacity: 1;
+  }
 }
