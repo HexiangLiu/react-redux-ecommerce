@@ -9,7 +9,7 @@ const ProductList = ({ products, title }) => {
       <h2 className="heading--1">{title}</h2>
       <div className="products__container">
         {products.map((item) => (
-          <Product key={item.id} product={item} />
+          <Product key={item.id} {...item} />
         ))}
       </div>
     </section>
