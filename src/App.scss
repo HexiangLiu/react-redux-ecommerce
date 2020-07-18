@@ -13,6 +13,18 @@
 
 html {
   font-size: 62.5%;
+
+  @media screen and (max-width: 75em) {
+    font-size: 56.25%;
+  }
+
+  @media screen and (max-width: 50em) {
+    font-size: 50%;
+  }
+
+  @media screen and (max-width: 37.5em) {
+    font-size: 43.75%;
+  }
 }
 
 * {
@@ -30,11 +42,11 @@ body {
 
 section {
   margin-top: 4rem;
-  padding: 10rem;
-}
+  padding: 5rem;
 
-.section-home {
-  padding: 0;
+  @media screen and (max-width: 37.5em) {
+    padding: 2rem;
+  }
 }
 
 .section-error {
@@ -45,13 +57,18 @@ section {
   padding: 10rem;
 }
 
+.section-home {
+  padding: 0;
+}
+
 .section-about {
   margin: 0 auto;
   width: 80%;
 }
 
 .form {
-  padding: 0 30rem;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .form-control {
@@ -142,6 +159,10 @@ section {
   font-weight: 900;
   letter-spacing: 3px;
   text-transform: capitalize;
+
+  @media screen and (max-width: 37.5em) {
+    font-size: 3rem;
+  }
 }
 
 .heading--3 {
@@ -149,6 +170,10 @@ section {
   font-size: 3rem;
   margin-bottom: 3.5rem;
   font-weight: 900;
+
+  @media screen and (max-width: 37.5em) {
+    font-size: 2rem;
+  }
 }
 
 .heading--4 {

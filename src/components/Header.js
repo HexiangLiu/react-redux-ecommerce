@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GiPineapple } from 'react-icons/gi';
+import { FaAlignJustify } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { clearCart, logout } from '../actions';
 
 import './Header.scss';
 
 const Header = ({ count, user, clearCart, logout }) => {
+  const [show, setShow] = useState(false);
+
   return (
     <header className="header">
+      <button
+        type="button"
+        className="navbar__toggle"
+        onClick={() => setShow(!show)}
+      >
+        <FaAlignJustify />
+      </button>
       <nav className="navbar">
         <ul className="navbar__items">
           <li className="navbar__item">
@@ -16,7 +26,7 @@ const Header = ({ count, user, clearCart, logout }) => {
               <GiPineapple />
             </Link>
           </li>
-          <div className="navbar__pages">
+          <div className={show ? 'navbar__pages show' : 'navbar__pages'}>
             <li className="navbar__item">
               <Link className="navbar__link" to="/">
                 Home
@@ -41,8 +51,6 @@ const Header = ({ count, user, clearCart, logout }) => {
                 </Link>
               </li>
             )}
-          </div>
-          <div className="navbar__pages">
             {/* display login or log out nav depending on user's status */}
             <li className="navbar__item">
               {user ? (
@@ -60,7 +68,7 @@ const Header = ({ count, user, clearCart, logout }) => {
                 </Link>
               )}
             </li>
-            <li className="navbar__item">
+            <li className="navbar__item navbar__item--cart">
               <Link className="navbar__link" to="/cart">
                 Cart <span className="navbar__cart">{count}</span>
               </Link>

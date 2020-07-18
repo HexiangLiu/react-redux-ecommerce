@@ -40,8 +40,6 @@ const Checkout = ({ cart, alert, user, total, showAlert, hideAlert }) => {
       }
     );
 
-    console.log(response);
-
     const result = await stripe.confirmCardPayment(response.data.clientSecret, {
       payment_method: {
         card: elements.getElement('card'),
@@ -56,8 +54,6 @@ const Checkout = ({ cart, alert, user, total, showAlert, hideAlert }) => {
       showAlert('Order Completed!');
       history.push('/');
     }
-
-    console.log(result);
   };
 
   if (cart.length === 0) {

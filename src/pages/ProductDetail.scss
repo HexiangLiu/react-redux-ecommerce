@@ -1,12 +1,16 @@
 .productDetail {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-auto-rows: 1fr 1fr;
+  gap: 1rem;
   background-color: var(--grey);
   align-items: center;
 
   &__img {
     width: 100%;
+    height: 100%;
     margin-bottom: 2rem;
+    object-fit: contain;
   }
 
   &__info {

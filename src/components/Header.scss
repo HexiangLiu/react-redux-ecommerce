@@ -20,15 +20,37 @@
     display: flex;
     justify-content: space-around;
     list-style: none;
+    align-items: center;
+
+    @media screen and (max-width: 50em) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__item:not(:last-child) {
     margin-right: 1rem;
+
+    @media screen and (max-width: 50em) {
+      margin-right: 0;
+    }
   }
 
   &__pages {
     display: flex;
     align-items: center;
+    transition: var(--transition);
+
+    @media screen and (max-width: 50em) {
+      flex-direction: column;
+      height: 0;
+      overflow: hidden;
+      justify-content: space-around;
+    }
+
+    @media screen and (min-width: 50em) {
+      height: 100% !important;
+    }
   }
 
   &__link:visited,
@@ -56,4 +78,36 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.navbar__toggle {
+  display: none;
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: var(--grey);
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media screen and (max-width: 50em) {
+    display: inline-block;
+  }
+}
+
+.navbar__item--cart {
+  @media screen and (max-width: 50em) {
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+  }
+}
+
+.show {
+  height: 50vh;
 }

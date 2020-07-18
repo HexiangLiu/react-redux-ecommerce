@@ -10,13 +10,13 @@ const Product = ({ product }) => {
     <article className="product">
       <div className="product__img-container">
         <img src={image.url} alt={title} className="product__img" />
-        <Link className="btn btn-secondary product__btn" to={`/products/${id}`}>
-          details
-        </Link>
       </div>
 
-      <h4 className="heading--4">{title}</h4>
+      <h4 className="product__title">{title}</h4>
       <p className="product__price">${price}</p>
+      <Link className="btn btn-primary product__btn" to={`/products/${id}`}>
+        details
+      </Link>
     </article>
   );
 };

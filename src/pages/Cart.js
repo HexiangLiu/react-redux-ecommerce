@@ -12,7 +12,7 @@ import './Cart.scss';
 
 const Cart = ({ cart, user, updateTotal }) => {
   localStorage.setItem('cart', JSON.stringify(cart));
-  console.log('lol');
+
   if (cart.length === 0) {
     return <EmptyCart />;
   }
