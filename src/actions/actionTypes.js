@@ -28,3 +28,7 @@ export { LOG_OUT, LOG_IN };
 const SHOW_ALERT = 'alert show';
 const HIDE_ALERT = 'hide alert';
 export { SHOW_ALERT, HIDE_ALERT };
+
+//Scroll
+const SCROLL = 'scroll';
+export { SCROLL };

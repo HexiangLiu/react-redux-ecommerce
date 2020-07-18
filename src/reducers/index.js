@@ -6,6 +6,7 @@ import cartReducer from './cartReducer';
 import totalReducer from './totalReducer';
 import userReducer from './userReducer';
 import alertReducer from './alertReducer';
+import scrollReducer from './scrollReducer';
 
 export default combineReducers({
   products: productsReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   total: totalReducer,
   user: userReducer,
   alert: alertReducer,
+  height: scrollReducer,
 });

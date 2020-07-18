@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { connect } from 'react-redux';
+
+//Action type
+import { scroll } from './actions';
 
 //style
 import './App.scss';
@@ -21,15 +25,23 @@ import PrivateRoute from './PrivateRoute';
 //components
 import Header from './components/Header';
 import Alert from './components/Alert';
+import ScrollButton from './components/ScrollButton';
 
 //Create a history object for redirect
 export const history = createBrowserHistory();
 
-const App = () => {
+const App = ({ scroll }) => {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      scroll(window.scrollY);
+    });
+  }, [scroll]);
+
   return (
     <Router history={history}>
       <Header />
       <Alert />
+      <ScrollButton />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -64,4 +76,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect(null, { scroll })(App);

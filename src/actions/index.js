@@ -8,6 +8,7 @@ import {
   UPDATE_TOTAL,
 } from './actionTypes';
 import { LOG_IN, LOG_OUT, SHOW_ALERT, HIDE_ALERT } from './actionTypes';
+import { SCROLL } from './actionTypes';
 
 // import configured axios instance
 import strapi from '../api/strapi';
@@ -126,4 +127,9 @@ export const hideAlert = () => {
 
 export const showAlert = (msg) => {
   return { type: SHOW_ALERT, payload: { msg: msg, type: 'success' } };
+};
+
+/****************Scroll****************/
+export const scroll = (height) => {
+  return { type: SCROLL, payload: height };
 };
