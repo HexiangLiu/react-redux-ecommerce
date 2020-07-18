@@ -13,6 +13,10 @@
   &__icon {
     color: inherit;
     font-size: 2.2rem;
+
+    @media screen and (max-width: 50em) {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -81,6 +85,7 @@
   background: transparent;
   color: var(--grey);
   cursor: pointer;
+  font-size: 2.2rem;
 
   &:focus {
     outline: none;
