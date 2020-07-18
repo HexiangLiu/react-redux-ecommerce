@@ -1,23 +1,32 @@
 .productDetail {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-  grid-auto-rows: 1fr 1fr;
+  display: flex;
   gap: 1rem;
   background-color: var(--grey);
   align-items: center;
 
+  & > * {
+    width: 50%;
+
+    @media screen and (max-width: 50em) {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    flex-direction: column;
+  }
+
   &__img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 2rem;
+    height: 40rem;
     object-fit: contain;
+    margin-bottom: 2rem;
   }
 
   &__info {
     display: grid;
-    gap: 2rem;
+    row-gap: 1rem;
+    align-items: center;
     justify-items: center;
-    padding: 0 2rem;
   }
 
   &__btn {

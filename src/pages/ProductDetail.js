@@ -38,7 +38,7 @@ const ProductDetail = ({ product, fetchProduct, addItem }) => {
             {title}
           </h1>
           <p>{description}</p>
-          <h2>Starting at ${price}</h2>
+          <h3>Starting at ${price}</h3>
           <button
             className="btn btn-primary productDetail__btn"
             onClick={() => {
